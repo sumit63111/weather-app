@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= city.name %></title>
+    <link rel="stylesheet" href="/public/css/variables.css">
+    <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body>
+    <div class="city_card">
+        <div class="city_card_cont">
+            <div class="is_day_background">
+                <% if(city.weather.is_day) { %>
+                    <img src="/public/img/day_image.jpg" alt="Day" style="display:block;width:100%;height:auto;">
+                <% } else { %>
+                    <img src="/public/img/night_image.jpg" alt="Night" style="display:block;width:100%;height:auto;">
+                <% } %>
+                <div class="is_day_overlay"></div>
+            </div>
+            <a href="/search/?city=<%= city.query.city %>&counter=<%= city.query.counter %>" class="simpl_btn">
+                <div class="city_card_main_cont">
+                    <div class="box_container hvr">
+                        <div class="city_box flex box_content">
+                            <div class="city_name_box flex_grow">
+                                <h2>
+                                    <%= city.name %>
+                                    <span class="country_code" title="<%= city.city.state %>, <%= city.city.country %>"><img src="https://open-meteo.com/images/country-flags/<%= city.city.country_code.toLowerCase() %>.svg" alt="<%= city.city.country_code %>"></span>
+                                </h2>
+                                <p class="simpl_p"><%= city.lat %>, <%= city.lon %> • <%= city.city.state %>, <%= city.city.country_code %></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box_content flex">
+                        <div class="temperature_box flex flex_grow">
+                            <div class="main_temp">
+                                <h1><%= city.weather.temperature %></h1>
+                            </div>
+                            <div class="main_temp_scales">
+                                <div class="main_temp_overlay"></div>
+                                <div class="main_temp_scale"><%= city.weather.temperature_unit %></div>
+                                <div class="main_temp_scale "><%= city.weather.weather.desc %></div>
+                            </div>
+                        </div>
+                        <div class="weather_icon" title="<%= city.weather.weather.desc %>">
+                            <img src="https://openweathermap.org/img/wn/<%= city.weather.weather.icon %>@2x.png" alt="<%= city.weather.weather.desc %>">
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= title %></title>
+<meta name="description" content="<%= desc %>">
+<link rel="shortcut icon" href="<%= favicon %>" type="image/png">
+<link rel="apple-touch-icon" href="<%= favicon %>">
+
+<meta property="og:title" content="<%= title %>">
+<meta property="og:description" content="<%= desc %>">
+<meta property="og:image" content="<%= og_img %>">
+
+<% if(dark_theme) { %>
+    <meta name="theme-color" content="#394d56">
+<% } else { %>
+    <meta name="theme-color" content="#327648">
+<% } %>
+<script type="text/javascript" src="/public/js/preload_script.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Righteous&family=Libre+Baskerville:wght@400;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/public/css/variables.css">
+<link rel="stylesheet" href="/public/css/styles.css">
